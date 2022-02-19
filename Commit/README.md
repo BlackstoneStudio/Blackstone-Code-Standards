@@ -7,10 +7,8 @@ Version 1.0.0
 - [2. Commit message](#2-commit-message)
     - [2.1 Subject line](#21-subject-line)
         - [i. Type](#i-type)
-        - [ii. Component](#ii-component)
         - [iii. Brief summary](#iii-brief-summary)
     - [2.2 Description \(optional\)](#22-description-optional)
-    - [2.3 Reference\(s\) \(optional\)](#23-references-optional)
 - [4. Examples](#4-examples)
 - [References](#references)
 
