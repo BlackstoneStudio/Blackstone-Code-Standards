@@ -1,6 +1,6 @@
 # Commit message style guide
 
-Version 1.0.0
+Version 1.0.1
 <!-- MarkdownTOC -->
 
 - [1. Introduction](#1-introduction)
@@ -11,7 +11,8 @@ Version 1.0.0
         - [iii. Brief summary](#iii-brief-summary)
     - [2.2 Description \(optional\)](#22-description-optional)
 - [3. Examples](#3-examples)
-- [4. References](#4-references)
+- [4. Exceptions](#4-Exceptions)
+- [5. References](#5-references)
 
 <!-- /MarkdownTOC -->
 
@@ -175,10 +176,19 @@ FILES (PRO-05) Add mockup.json
 ```git
 CI (PRO-06) Update DeployDev job
 ```
+---------------
+
+## 4. Exceptions
+
+The merger or conflict resolved using the default messages.
+
+```git
+Merge pull request #63 from Project/story/PRO-07
+```
 
 ---------------
 
-## 4. References
+## 5. References
 
 Inspired by and based heavily on:
 
