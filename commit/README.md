@@ -186,6 +186,10 @@ Merges or conflict resolved using the default messages.
 Merge pull request #63 from Project/story/PRO-07
 ```
 
+```git
+Merge branch 'story/PRO-08' of github.com:BlackstoneStudio/Project into subtask/PRO-09
+```
+
 ---------------
 
 ## 5. References
