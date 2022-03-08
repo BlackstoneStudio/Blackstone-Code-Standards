@@ -180,7 +180,7 @@ CI (PRO-06) Update DeployDev job
 
 ## 4. Exceptions
 
-The merger or conflict resolved using the default messages.
+Merges or conflict resolved using the default messages.
 
 ```git
 Merge pull request #63 from Project/story/PRO-07
