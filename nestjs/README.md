@@ -449,7 +449,7 @@ async create({ password, ...user }: Prisma.UsersCreateInput): Promise<User> {
 ```
 
 ## 5. Request lifecycle
-- In general, the request lifecycle looks like the following:
+Nest applications handle requests and produce responses in a sequence we refer to as the request lifecycle. With the use of middleware, pipes, guards, and interceptors, it can be challenging to track down where a particular piece of code executes during the request lifecycle, especially as global, controller level, and route level components come into play. In general, the request lifecycle looks like the following:
 
 1. Incoming request
 2. Globally bound middleware
