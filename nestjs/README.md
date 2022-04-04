@@ -269,11 +269,7 @@ Example:
 ```javascript
 @Injectable()
 export class TasksService {
-  private prisma: PrismaService;
-
-  constructor(prismaService: PrismaService) {
-    this.prisma = prismaService;
-  }
+  constructor(private prismaService: PrismaService) {}
 
   create({ userId, ...data }: CreateTaskDto): Promise<Task> {
     return this.prisma.tasks.create({
