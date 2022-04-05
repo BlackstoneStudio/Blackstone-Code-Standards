@@ -18,6 +18,7 @@ Version 1.0.0
     - [4.1.1 Guards](#411-guards)
     - [4.1.2 Swagger](#412-swagger)
       - [4.1.2.1 DTO's](#4121-dtos)
+        - [4.1.2.1.1 DTO's Naming Convention](#41211-dtos-naming-convention)
       - [4.1.2.2 Errors Responses](#4122-errors-responses)
   - [4.2 Service](#42-service)
 - [5. References](#5-references)
@@ -359,6 +360,28 @@ export class CreateTaskDto {
 ```
 
 In addition, the `@CommonErrorsResponses()` decorator can be used to group the most common API errors.
+
+###### 4.1.2.1.1 DTO's Naming Convention
+
+For a better organization in swagger schemes, it is important that the names of the DTO's include the name and the action.
+
+```javascript
+export class Task {
+  ...
+}
+```
+
+```javascript
+export class TaskCreate {
+  ...
+}
+```
+
+```javascript
+export class TaskUpdate {
+  ...
+}
+```
 
 ##### 4.1.2.2 Errors Responses
 
