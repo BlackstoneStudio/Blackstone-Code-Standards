@@ -20,7 +20,10 @@ Version 1.0.0
       - [4.1.2.1 DTO's](#4121-dtos)
         - [4.1.2.1.1 DTO's Naming Convention](#41211-dtos-naming-convention)
       - [4.1.2.2 Errors Responses](#4122-errors-responses)
+    - [4.1.3 Error handling](#413-error-handling)
   - [4.2 Service](#42-service)
+  
+
 - [5. References](#5-references)
 
 <!-- /MarkdownTOC -->
@@ -397,6 +400,96 @@ function CommonErrorsResponses() {
   );
 }
 ```
+
+
+#### 4.1.3 Error handling
+
+Use `Custom Exception Filter` to handle errors.
+
+```javascript
+@Catch()
+export class ErrorsFilter<T> implements ExceptionFilter {
+  private logger = new Logger(ErrorsFilter.name);
+
+  catch(exception: T, host: ArgumentsHost): Response {
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse<Response>();
+    this.logger.error(exception);
+    if (exception instanceof ControlledError) {
+      const { errorResponse, message } = exception;
+      return response
+        .status(errorResponse.status)
+        .send({ ...errorResponse, message });
+    }
+    if (exception instanceof HttpException) {
+      return response
+        .status(exception.getStatus())
+        .send(exception.getResponse());
+    }
+    return response
+      .status(Errors.UNKNOWN_ERROR.status)
+      .json(Errors.UNKNOWN_ERROR);
+  }
+}
+```
+
+```javascript
+import { ApiResponse } from './response.entity';
+
+export class ControlledError extends Error {
+  public errorResponse: ApiResponse;
+  constructor(errorResponse: ApiResponse, message = '') {
+    super();
+    this.message = message;
+    this.errorResponse = errorResponse;
+  }
+}
+```
+
+In this way you can save lines of code:
+
+```javascript
+  @Post('register')
+  @ApiResponse(Success.REGISTER_USER_OK)
+  @ApiResponse(NotTypeError(Errors.REGISTER_USER_ALREADY_EXIST))
+  async register(
+    @Body() registerRequest: AuthCreate,
+    @Res() res: Response
+  ): Promise<void | Response> {
+    try {
+      await this.authService.registerUserHandler(registerRequest);
+      res.status(Success.REGISTER_USER_OK.status).json(Success.REGISTER_USER_OK.description);
+    } catch (e) {
+      this.logger.error(JSON.stringify(e));
+      if (e instanceof CognitoRegisterError)
+        return res
+          .status(Errors.REGISTER_USER_ALREADY_EXIST.status)
+          .json({ ...Errors.REGISTER_USER_ALREADY_EXIST, message: e.message });
+      if (e instanceof CreateCustomerError)
+        return res
+          .status(Errors.REGISTER_USER_ALREADY_EXIST.status)
+          .json({ ...Errors.REGISTER_USER_ALREADY_EXIST, message: e.message });
+      res.status(Errors.UNKNOWN_ERROR.status).send(Errors.UNKNOWN_ERROR);
+    }
+  }
+
+```
+
+vs
+
+```javascript
+@Post('register')
+  @ApiResponse(Success.REGISTER_USER_OK)
+  @ApiResponse(NotTypeError(Errors.REGISTER_USER_ALREADY_EXIST))
+  async register(
+    @Body() registerRequest: AuthCreate,
+    @Res() res: Response
+  ): Promise<void | Response> {
+    await this.authService.registerUserHandler(registerRequest);
+    res.status(Success.REGISTER_USER_OK.status).json(Success.REGISTER_USER_OK.description);
+  }
+```
+
 
 ### 4.2 Service
 
