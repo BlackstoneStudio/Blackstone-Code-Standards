@@ -458,6 +458,16 @@ We don’t recommend using indexes for keys if the order of items may change.
       };
 
       const Link: React.FC<LinkProps> = ({ url, id, text }) => {
+      
+        // useState
+        // useRef
+        // useReducer
+        // useContext
+        // useMemo
+        // useCallback
+        // useEffect
+        // useLayoutEffect
+      
         return() {
           return <a href={url} data-id={id}>{text}</a>;
         }
