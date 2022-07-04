@@ -125,7 +125,11 @@ Every commit subject line MUST start with a TYPE in all CAPS and no spaces or ot
         <tr>
             <td><code>TEST</code></td>
             <td>Adding missing tests or editing tests.</td>
-        </tr>        
+        </tr>
+         <tr>
+            <td><code>DB</code></td>
+            <td>SQL files, migrations, ORM (schemas, models) that depend on database changes.</td>
+        </tr>
     </tbody>
 </table>
 
