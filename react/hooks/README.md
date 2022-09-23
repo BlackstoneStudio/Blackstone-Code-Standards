@@ -1,4 +1,4 @@
-# React/JSX Custom Hooks
+# React Custom Hooks
 
 This section is a collection of custom hooks from the react team, blackstone and the community in general. 
 
