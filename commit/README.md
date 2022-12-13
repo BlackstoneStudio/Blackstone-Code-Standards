@@ -11,7 +11,7 @@ Version 1.0.1
         - [iii. Brief summary](#iii-brief-summary)
     - [2.2 Description \(optional\)](#22-description-optional)
 - [3. Examples](#3-examples)
-- [4. Exceptions](#4-Exceptions)
+- [4. Exceptions](#4-exceptions)
 - [5. References](#5-references)
 
 <!-- /MarkdownTOC -->
@@ -22,7 +22,7 @@ Version 1.0.1
 
 This guide outlines how messages SHOULD be formatted when committing code to any version control system, such as Git or Subversion (SVN). 
 
-Before reading this guide it is necessary to know [Atomic Commit][atomiccommit].
+### **Before reading this guide it is necessary to know [Atomic Commit][atomiccommit].**
 
 ---
 
