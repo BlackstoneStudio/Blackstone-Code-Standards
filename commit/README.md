@@ -1,15 +1,15 @@
-# Commit message style guide
+# Commit Message Style Guide
 
-Version 1.0.1
+Version 1.1.1
 <!-- MarkdownTOC -->
 
 - [1. Introduction](#1-introduction)
-- [2. Commit message](#2-commit-message)
-    - [2.1 Subject line](#21-subject-line)
+- [2. Commit Message](#2-commit-message)
+    - [2.1 Subject Line](#21-subject-line)
         - [i. Type](#i-type)
         - [ii. Jira Issue](#ii-jira-issue)
-        - [iii. Brief summary](#iii-brief-summary)
-    - [2.2 Description \(optional\)](#22-description-optional)
+        - [iii. Brief Summary](#iii-brief-summary)
+    - [2.2 Description (Optional)](#22-description-optional)
 - [3. Examples](#3-examples)
 - [4. Exceptions](#4-exceptions)
 - [5. References](#5-references)
@@ -129,6 +129,30 @@ Every commit subject line MUST start with a TYPE in all CAPS and no spaces or ot
          <tr>
             <td><code>DB</code></td>
             <td>SQL files, migrations, ORM (schemas, models) that depend on database changes.</td>
+        </tr>
+        <tr>
+            <td><code>SEC</code></td>
+            <td>Changes related to security, such as fixing a security vulnerability.</td>
+        </tr>
+        <tr>
+            <td><code>PERF</code></td>
+            <td>Changes related to performance improvement.</td>
+        </tr>
+        <tr>
+            <td><code>REFACTOR</code></td>
+            <td>Changes that do not add a new feature or fix a bug, but improve the code structure.</td>
+        </tr>  
+        <tr>
+            <td><code>UI</code></td>
+            <td>Changes related to user interface elements like color schemes, layouts, and components.</td>
+        </tr>     
+        <tr>
+            <td><code>I18N</code></td>
+            <td>Changes related to internationalization, like adding or updating translations.</td>
+        </tr>
+        <tr>
+            <td><code>CONFIG</code></td>
+            <td>Changes to configuration files or settings.</td>
         </tr>
     </tbody>
 </table>
