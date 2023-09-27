@@ -39,6 +39,7 @@
    - Sync the story into your subtask:
      ```shell
      git checkout subtask/TSK-# && git merge story/TSK-#
+     git push
      ```
    - Finally, push your changes:
      ```shell
