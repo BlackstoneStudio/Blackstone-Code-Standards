@@ -24,7 +24,7 @@
      git checkout -b subtask/TSK-#
      ```
 
-4. **Push the Task.**
+## Push the Task.
    - This process should always be done before pushing changes. Merge conflicts are likely to arise; contact everyone involved in the project to resolve them.
    - Commit your changes (Refer to [Commit Guidelines](https://github.com/BlackstoneStudio/Blackstone-Code-Standards/tree/master/commit)).
    - After committing your changes, sync changes with parent branches:
