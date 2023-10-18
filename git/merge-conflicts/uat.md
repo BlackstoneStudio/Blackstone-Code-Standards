@@ -12,8 +12,14 @@ We will create a new temporary branch from the story branch that conflicts with 
 3. `git checkout -b story/TSK-###-UAT`
 4. `git merge UAT`
 
-**After that the conflicts should appear in your text editor, Please communicate with everyone involved in the project to resolve conflicts correctly and not overwrite other changes. Finally push the changes**:
+**After that the conflicts should appear in your text editor, Please communicate with everyone involved in the project to resolve conflicts correctly and not overwrite other changes.**
+
+** Publish temporary branch**:
 `git push --set-upstream origin story/TSK-###-UAT`
+
+** After publishing the branch you need to create a new Pull Request on GitHub:
+   - Base: UAT
+   - Compare: story/TSK-###-UAT
 
 *After this temporary branch has been merged into UAT we need to delete the branch*:
 
