@@ -2,12 +2,11 @@
 
 Reporting time on Productive helps us to calculate the delivery times to clients, assign people and decide the amount of projects we can take. Here’s how we’ll contribute:
 
-- [1. Click on ‘Time tracking’ plugin]()
-- [2. Write the amount of time you were assigned to the task]()
-- [3. Verify the Date/time]()
-- [4. Write a message explaining the progress done]()
-- [5. Verify your work was logged]()
-- [At the end of the day, you should have no tasks in "In Progress".]()
+- [1. Click on ‘Time tracking’ plugin](https://github.com/BlackstoneStudio/Blackstone-Code-Standards/blob/master/Documentation/common-process/how-to-report-time-on-productive.md#1-click-on-time-tab)
+- [2. Write the amount of time you were assigned to the task](https://github.com/BlackstoneStudio/Blackstone-Code-Standards/blob/master/Documentation/common-process/how-to-report-time-on-productive.md#2-select-the-project---write-the-amount-of-time-you-were-assigned-to-the-task)
+- [3. Verify the Date/time](https://github.com/BlackstoneStudio/Blackstone-Code-Standards/blob/master/Documentation/common-process/how-to-report-time-on-productive.md#3-verify-the-datetime)
+- [4. Write a message explaining the progress done](https://github.com/BlackstoneStudio/Blackstone-Code-Standards/blob/master/Documentation/common-process/how-to-report-time-on-productive.md#4-write-a-message-explaining-the-progress-done)
+- [5. Verify your work was logged](https://github.com/BlackstoneStudio/Blackstone-Code-Standards/blob/master/Documentation/common-process/how-to-report-time-on-productive.md#5-verify-your-work-was-logged)
 
 ---
 
@@ -19,7 +18,7 @@ Go to the project’s board and open the story/task related to the work done:
 
 ![](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/Time+tracking+2.png)
 
-## **2.** Select the project & ** Write** the amount of time you were assigned to the task
+## 2. Select the project & ** Write** the amount of time you were assigned to the task
 
 ![](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/Time+tracking+3.png)
 ![](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/Time+tracking+4.png)
@@ -37,11 +36,11 @@ This is only to plan deliveries to clients. It’s not an personal metric.
 
 ## **4. Write** a message explaining the progress done
 
-![](blob:https://blackstonestudio.atlassian.net/a80fef31-d63a-4849-8ce5-76f86766f14f#media-blob-url=true&id=5e872dd2-948c-4b3c-b266-e55faff9c4fe&collection=contentId-868286484&contextId=959053909&height=458&width=802&alt=)
+![](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/Time+tracking+6.png)
 
 ## **5. Verify** your work was logged
 
-![](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/Time+tracking+6.png)
+![](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/Time+tracking+7.png)
 
 **As needed**, you can continue logging hours as the task needed.
 
