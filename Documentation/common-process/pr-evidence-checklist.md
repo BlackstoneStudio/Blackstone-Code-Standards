@@ -19,5 +19,5 @@ Prework - First time
 |Keep microphone muted unless you have something to explain.|![loom reference](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/loom+4.png)|
 |Select only the necessary view: Screen, Window or Browser tab|![loom reference](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/loom+5.png)|
 |As soon as you’ve proved your point click the green button|![loom reference](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/loom+6.png)|
-|Copy and share the link to the video as a comment in their respective ticket report when moving the ticket from In Progress to Code Review, If a video is not enough you can also add a brief explanation at the video footer on the ticket.|![loom reference](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/loom+7.png)|
+|Copy and share the link to the video as a comment in their respective ticket report when moving the ticket from In Progress to Code Review, If a video is not enough you can also add a brief explanation at the video footer on the ticket.|![loom reference](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/loom+7.png) <br> ![loom reference](https://blackstone-code-standards-images.s3.us-west-2.amazonaws.com/loom+8.png)|
 |- You can edit (trim) the video if necessary||
