@@ -17,7 +17,7 @@ We will create a new temporary branch from the story branch that conflicts with 
 **Publish temporary branch**:
 `git push --set-upstream origin story/TSK-###-UAT`
 
-**After publishing the branch you need to create a new Pull Request on GitHub:
+**After publishing the branch you need to create a new Pull Request on GitHub**:
    - Base: UAT
    - Compare: story/TSK-###-UAT
 
