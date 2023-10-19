@@ -45,5 +45,29 @@
      git push
      ```
 
+## Stay In Sync With Your Local Branches
+1. **Sync changes from develop**
+   - Make sure you are in the "develop" branch and pull changes:
+     ```shell
+     git checkout develop && git pull
+     ```
+2. **Checkout into your story & pull changes**
+   - ```shell
+     git checkout story/TSK-# && git pull
+     ```
+3. **Sync develop changes into the story**
+   - ```shell
+     git merge develop
+     ```
+   - If the merge command bring us changes:
+      ```shell
+      git push
+      ```
+4. **Sync story changes with your subtask**
+   - ```shell
+     git checkout subtask/TSK-# && git merge story/TSK-#
+     ```
+*You can start from step 2 if you really want to stay in sync with a story in your subtask*
+
 ## Git Flow Reference
 ![Git Flow Reference](https://productive-files-production.s3.amazonaws.com/attachments%2Ffiles%2F003%2F246%2F034%2Foriginal%2F8ef76612-feb8-47ca-963a-2cd28b5fb62a.png)
