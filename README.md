@@ -570,11 +570,11 @@ Normally all projects use eslint and prettier, install the respective plugins in
 
     // Example of function call
     const user = createUser({
-    name: "Pepe",
-    age: 30,
-    email: "thePepe@example.com",
-    isAdmin: false,
-    isActive: true,
+      name: "Pepe",
+      age: 30,
+      email: "thePepe@example.com",
+      isAdmin: false,
+      isActive: true,
     });
 
    
