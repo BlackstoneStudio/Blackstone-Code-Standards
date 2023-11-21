@@ -554,7 +554,30 @@ Normally all projects use eslint and prettier, install the respective plugins in
       baz,
     );
     ```
-    
+
+  - When developing functions or methods that require the use of more than three arguments, consider grouping these arguments into one object. This practice helps improve code readability and maintainability. The following are the advantages of this strategy.
+
+    ```javascript
+    // bad
+    function createUser(name, age, email, isAdmin, isActive) {
+      // ...
+    }
+
+    // good
+    function createUser(userDetails) {
+      // ...
+    }
+
+    // Example of function call
+    const user = createUser({
+      name: "Pepe",
+      age: 30,
+      email: "thePepe@example.com",
+      isAdmin: false,
+      isActive: true,
+    });
+
+   
 ## Arrow Functions
 
   - When you must use an anonymous function (as when passing an inline callback), use arrow function notation. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html)
@@ -880,22 +903,22 @@ Normally all projects use eslint and prettier, install the respective plugins in
     }
 
     // bad
-    if (name) {
-      // ...
-    }
-
-    // good
     if (name !== '') {
       // ...
     }
 
+    // good
+    if (name) {
+      // ...
+    }
+
     // bad
-    if (collection.length) {
+    if (collection.length > 0) {
       // ...
     }
 
     // good
-    if (collection.length > 0) {
+    if (collection.length) {
       // ...
     }
     ```
@@ -1146,6 +1169,234 @@ Normally all projects use eslint and prettier, install the respective plugins in
       startRunning();
     }
     ```
+
+  - The first function is a bad practice because it uses an else if string that makes the code more difficult to read and can complicate the addition or       modification of conditions in the future.
+    The second approach is a better practice because it improves clarity and maintainability: by eliminating the else, each condition is handled independently, making the code more readable and facilitating future modifications.
+    
+
+    ```javascript
+    let isFirstStepWorking  = true;
+    let isSecondStepWorking = true;
+    let isThirdStepWorking  = true;
+    let isFourthStepWorking = false;
+
+      // bad
+      const workingSteps = () => {
+        if (isFirstStepWorking === true) {
+          if (isSecondStepWorking === true) {
+            if (isThirdStepWorking === true) {
+              if (isFourthStepWorking === true) {
+                return "Working properly!";
+              } else {
+                return "Fourth step broken.";
+              }
+            } else {
+              return "Third step broken.";
+            }
+          } else {
+            return "Second step broken.";
+          }
+        } else {
+          return "First step broken.";
+        }
+      }
+
+      // good
+      const workingSteps = () => {
+        if (!isFirstStepWorking) return "First step broken.";
+
+        if (!isSecondStepWorking) return "Second step broken.";
+
+        if (!isThirdStepWorking) return "Third step broken.";
+
+        if (!isFourthStepWorking) return "Fourth step broken.";
+
+        return "Working properly!";
+      }
+
+      // bad
+       const getPayAmount = ({ isDead = false, isSeparated = true, isRetired = false }) => {
+        let result;
+        if ( isDead ) {
+            result = 1500;
+        } else {
+            if ( isSeparated ) {
+                result = 2500;
+            } else {
+                if ( isRetired ) {
+                    result = 3000;
+                } else {
+                    result = 4000; 
+                }
+            }
+        }
+        
+        return result;
+      } 
+
+       // good
+       const getPayAmount = ({ isDead = false, isSeparated = true, isRetired = false }) => {
+       if ( isDead ) return 1500;
+
+       if ( isSeparated ) return 2500;
+
+       if ( isRetired ) return 3000;
+
+       return 4000;
+      }
+
+       // best
+       const getPayAmount = ({ isDead = false, isSeparated = true, isRetired = false }) => {
+       if ( isDead ) return 1500;
+
+       if ( isSeparated ) return 2500;
+
+       return isRetired ? 3000 : 4000;
+      }
+
+      ```
+
+  - Each of the three versions of the getFruitsByColor function aims to do the same thing: return a list of fruits based on the given color or throw an error if the color is not among the expected ones. However, they differ in their clarity, brevity, and maintainability.
+
+      Version (`'bad'`, `if-else`)
+
+      Pros: This version is straightforward and easy to understand.
+      Cons: However, using multiple if-else statements can make the code harder to read, especially if more colors and conditions are added in the future. As the list grows, it becomes more cumbersome to follow the logic and maintain the code.
+      
+      Version (`'good'`, `switch-case`)
+
+      Pros: Using a switch slightly improves readability compared to multiple if-else statements, and it's a bit easier to maintain as it has a clearer structure for handling multiple conditions based on a single variable.
+      Cons: Still, adding or removing colors requires changing the switch structure, which could be seen as more work than simply adding or removing properties from an object.
+
+      Version (`'best'`, `lookup object`)
+      
+      Pros: This version is more concise and easier to maintain. The logic of mapping colors to fruits is managed through a literal object, which makes adding or removing colors as easy as modifying the fruitsByColor object. There are no complex control flow structures (like if or switch), and the line that throws the error is very short and clear.
+      Efficiency: Accessing an object's property is generally faster than a switch statement or multiple if-else statements, especially if the list of cases is long.
+      Cons: One might argue that for someone not accustomed to working with operators like ?? or the error handling style using throw in expressions, this version could be slightly less readable. However, this is a common pattern in modern TypeScript and JavaScript.
+
+    ```javascript
+     // bad
+      const getFruitsByColor = ( color ) => {
+
+        if ( color === 'red' ) {
+            return ['manzana','fresa'];
+        } else if ( color === 'yellow') {
+            return ['piña','banana'];
+        } else if ( color === 'purple') {
+            return ['moras','uvas']
+        } else {
+            throw Error('the color must be: red, yellow, purple');
+        }
+    }
+
+
+    // good 
+    const getFruitsByColor = ( color ) => {
+
+        switch( color ) {
+             case 'red':
+                 return ['manzana','fresa'];
+             case 'yellow':
+                 return ['piña','banana'];
+             case 'purple':
+                 return ['moras','uvas'];
+             default:
+                 throw Error('the color must be: red, yellow, purple');
+         }
+    }
+
+
+    // best
+    const getFruitsByColor = ( color ) => {
+
+        const fruitsByColor = {
+            red:    ['manzana','fresa'],
+            yellow: ['piña','banana'],
+            purple: ['moras','uvas'],
+        };
+
+         return fruitsByColor[color] ?? throw new Error('the color must be: red, yellow, purple');
+    }
+    ```
+
+  - Version (`'bad'`)
+
+    The first block of code (bad) uses multiple logical operators || to compare the variable color with a list of values. This makes the code:
+
+    Verbose: There's a lot of repeated text, which makes the code longer and less readable.
+    Hard to maintain: If you need to add or remove a color, you have to modify the condition and make sure you do not make mistakes while manipulating the logical operators.
+
+    Version (`'good'`)
+
+    The second block of code (good) improves upon the former by utilizing the Array.includes() method. This makes the code:
+
+    More readable: By placing all the colors into an array and using includes(), the code's purpose becomes clearer.
+    Easier to maintain: Adding or removing colors from the array is straightforward and less error-prone.
+
+    Version (`'best' first version`)
+
+    The third block of code (best) further improves by reorganizing the logic:
+
+    Less complex: It inverts the logic of the condition, returning immediately if the color is not included, which reduces a level of nesting and enhances clarity.
+    Cleaner code: Eliminates the unnecessary else because if the condition is met, the function ends with a return.
+
+    Version (`'best'`)
+
+    The last version uses a ternary expression, which is a concise way to write an if-else statement.
+
+     ```javascript
+      // bad
+      const colorForRainbow = (color) => {
+          if (
+            color === "red" ||
+            color === "orange" ||
+            color === "yellow" ||
+            color === "green" ||
+            color === "blue" ||
+            color === "indigo" ||
+            color === "violet"
+          ) {
+            return "yes, it is a valid color";
+          } else {
+            return "no, it is not a valid color";
+          }
+        };
+
+      // good
+      const colorForRainbow = (color) => {
+        if (
+          ["red", "orange", "yellow", "green", "blue", "indigo", "violet"].includes(
+            color
+          )
+        ) {
+          return "yes, it is a valid color";
+        } else {
+          return "no, it is not a valid color";
+        }
+      };
+
+      // best
+      const colorForRainbow = (color) => {
+        if (
+          !["red", "orange", "yellow", "green", "blue", "indigo", "violet"].includes(
+            color
+          )
+        ) {
+          return "no, it is not a valid color";
+        }
+        return "yes, it is a valid color";
+      };
+
+      // best
+      const colorForRainbow = (color) =>
+        ["red", "orange", "yellow", "green", "blue", "indigo", "violet"].includes(
+          color
+        )
+          ? "yes, it is a valid color"
+          : "no, it is not a valid color";
+
+     
+      ```
 
 ## Comments
 
